@@ -169,7 +169,7 @@ export default function InvestorDashboard() {
     { id: 'growth', label: 'Growth Stage', checked: false }
   ];
 
-  const toggleSaveProject = (projectId) => {
+  const toggleSaveProject = (projectId:any) => {
     setSavedProjects(prev => 
       prev.includes(projectId) 
         ? prev.filter(id => id !== projectId)
@@ -177,7 +177,7 @@ export default function InvestorDashboard() {
     );
   };
 
-  const openStartupModal = (startup) => {
+  const openStartupModal = (startup:any) => {
     setSelectedStartup(startup);
   };
 
