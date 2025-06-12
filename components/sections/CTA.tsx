@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight, Rocket, TrendingUp } from 'lucide-react';
 
 export default function CTA() {
-  const sectionRef = useRef<HTMLSectionElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
   const { gsap, fadeIn, scaleIn } = useGSAP();
 
   useEffect(() => {

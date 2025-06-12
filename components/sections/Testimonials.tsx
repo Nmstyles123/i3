@@ -5,12 +5,22 @@ import { useGSAP } from '@/hooks/useGSAP';
 import { Button } from '@/components/ui/button';
 import { ChevronLeft, ChevronRight, Quote, Star } from 'lucide-react';
 
+interface Testimonial {
+  name: string;
+  role: string;
+  company: string;
+  content: string;
+  avatar: string;
+  rating: number;
+  amount: string;
+}
+
 export default function Testimonials() {
-  const sectionRef = useRef<HTMLSectionElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
   const [currentSlide, setCurrentSlide] = useState(0);
   const { gsap, fadeIn } = useGSAP();
 
-  const testimonials = [
+  const testimonials: Testimonial[] = [
     {
       name: "Sarah Chen",
       role: "CEO, TechFlow Solutions",

@@ -4,12 +4,17 @@ import { useEffect, useRef, useState } from 'react';
 import { useGSAP } from '@/hooks/useGSAP';
 import { ChevronDown } from 'lucide-react';
 
+interface FAQItem {
+  question: string;
+  answer: string;
+}
+
 export default function FAQ() {
-  const sectionRef = useRef<HTMLSectionElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
   const [openIndex, setOpenIndex] = useState<number | null>(0);
   const { gsap, fadeIn } = useGSAP();
 
-  const faqs = [
+  const faqs: FAQItem[] = [
     {
       question: "How does i3's matching algorithm work?",
       answer: "Our AI-powered algorithm analyzes multiple factors including industry sector, funding stage, geographic preferences, investment size, and strategic focus areas. We also consider past investment patterns and success rates to ensure high-quality matches between startups and investors."

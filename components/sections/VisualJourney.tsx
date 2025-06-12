@@ -11,7 +11,7 @@ import {
 } from 'lucide-react';
 
 export default function VisualJourney() {
-  const sectionRef = useRef<HTMLSectionElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
   const { gsap, fadeIn, parallax } = useGSAP();
 
   useEffect(() => {
@@ -26,8 +26,9 @@ export default function VisualJourney() {
       });
 
       // Story timeline animation
-      gsap.utils.toArray('.journey-step').forEach((step: any, index) => {
-        gsap.fromTo(step,
+      gsap.utils.toArray('.journey-step').forEach((step, index) => {
+        const element = step as HTMLElement;
+        gsap.fromTo(element,
           { opacity: 0, x: index % 2 === 0 ? -50 : 50 },
           {
             opacity: 1,
@@ -35,7 +36,7 @@ export default function VisualJourney() {
             duration: 0.8,
             ease: "power2.out",
             scrollTrigger: {
-              trigger: step,
+              trigger: element,
               start: "top 80%",
             }
           }
