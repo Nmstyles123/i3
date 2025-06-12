@@ -25,6 +25,19 @@ import {
   X
 } from 'lucide-react';
 
+interface Startup {
+  id: number;
+  name: string;
+  description: string;
+  industry: string;
+  stage: string;
+  location: string;
+  fundingGoal: string;
+  team: number;
+  founded: string;
+  logo: string;
+}
+
 export default function InvestorDashboard() {
   const dashboardRef = useRef<HTMLDivElement>(null);
   const [selectedFilters, setSelectedFilters] = useState({
@@ -34,7 +47,7 @@ export default function InvestorDashboard() {
     fundingRange: ''
   });
   const [savedProjects, setSavedProjects] = useState([1, 3, 5]);
-  const [selectedStartup, setSelectedStartup] = useState(null);
+  const [selectedStartup, setSelectedStartup] = useState<Startup | null>(null);
 
   const { gsap, fadeIn, slideInLeft, slideInRight } = useGSAP();
 
@@ -169,7 +182,7 @@ export default function InvestorDashboard() {
     { id: 'growth', label: 'Growth Stage', checked: false }
   ];
 
-  const toggleSaveProject = (projectId:any) => {
+  const toggleSaveProject = (projectId: number) => {
     setSavedProjects(prev => 
       prev.includes(projectId) 
         ? prev.filter(id => id !== projectId)
@@ -177,7 +190,7 @@ export default function InvestorDashboard() {
     );
   };
 
-  const openStartupModal = (startup:any) => {
+  const openStartupModal = (startup: Startup) => {
     setSelectedStartup(startup);
   };
 
