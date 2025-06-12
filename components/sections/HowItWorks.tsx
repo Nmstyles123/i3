@@ -12,7 +12,7 @@ import {
 } from 'lucide-react';
 
 export default function HowItWorks() {
-  const sectionRef = useRef<HTMLSectionElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
   const { gsap, fadeIn, slideInLeft, slideInRight } = useGSAP();
 
   useEffect(() => {
@@ -44,8 +44,8 @@ export default function HowItWorks() {
       );
 
       // Parallax icons
-      gsap.utils.toArray('.parallax-icon').forEach((icon: any) => {
-        gsap.to(icon, {
+      gsap.utils.toArray('.parallax-icon').forEach((icon) => {
+        gsap.to(icon as HTMLElement, {
           yPercent: -20,
           ease: "none",
           scrollTrigger: {

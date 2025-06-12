@@ -12,7 +12,7 @@ import {
 } from 'lucide-react';
 
 export default function TrustFramework() {
-  const sectionRef = useRef<HTMLSectionElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
   const { gsap, fadeIn, scaleIn } = useGSAP();
 
   useEffect(() => {
@@ -48,7 +48,7 @@ export default function TrustFramework() {
       gsap.fromTo('.stat-number', 
         { innerText: 0 },
         {
-          innerText: (i, target) => target.getAttribute('data-value'),
+          innerText: (index: number, target: HTMLElement) => target.getAttribute('data-value'),
           duration: 2,
           ease: "power2.out",
           snap: { innerText: 1 },

@@ -14,7 +14,7 @@ import {
 } from 'lucide-react';
 
 export default function ForInvestors() {
-  const sectionRef = useRef<HTMLSectionElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
   const { gsap, fadeIn } = useGSAP();
 
   useEffect(() => {
@@ -45,13 +45,14 @@ export default function ForInvestors() {
       );
 
       // Filter options hover effects
-      gsap.utils.toArray('.filter-option').forEach((option: any) => {
-        option.addEventListener('mouseenter', () => {
-          gsap.to(option, { scale: 1.05, duration: 0.2 });
+      gsap.utils.toArray('.filter-option').forEach((option) => {
+        const element = option as HTMLElement;
+        element.addEventListener('mouseenter', () => {
+          gsap.to(element, { scale: 1.05, duration: 0.2 });
         });
         
-        option.addEventListener('mouseleave', () => {
-          gsap.to(option, { scale: 1, duration: 0.2 });
+        element.addEventListener('mouseleave', () => {
+          gsap.to(element, { scale: 1, duration: 0.2 });
         });
       });
 

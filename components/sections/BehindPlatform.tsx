@@ -13,7 +13,7 @@ import {
 } from 'lucide-react';
 
 export default function BehindPlatform() {
-  const sectionRef = useRef<HTMLSectionElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
   const { gsap, fadeIn, slideInLeft, slideInRight } = useGSAP();
 
   useEffect(() => {

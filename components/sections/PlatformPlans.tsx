@@ -12,7 +12,7 @@ import {
 } from 'lucide-react';
 
 export default function PlatformPlans() {
-  const sectionRef = useRef<HTMLSectionElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
   const { gsap, fadeIn, scaleIn } = useGSAP();
 
   useEffect(() => {

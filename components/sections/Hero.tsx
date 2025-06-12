@@ -6,7 +6,7 @@ import { useGSAP } from '@/hooks/useGSAP';
 import { ArrowRight, Zap, TrendingUp, Users } from 'lucide-react';
 
 export default function Hero() {
-  const heroRef = useRef<HTMLDivElement>(null);
+  const heroRef = useRef<HTMLElement>(null);
   const { gsap, createTimeline, parallax } = useGSAP();
 
   useEffect(() => {

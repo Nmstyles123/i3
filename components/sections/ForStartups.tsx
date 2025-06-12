@@ -14,7 +14,7 @@ import {
 } from 'lucide-react';
 
 export default function ForStartups() {
-  const sectionRef = useRef<HTMLSectionElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
   const { gsap, fadeIn } = useGSAP();
 
   useEffect(() => {
@@ -30,18 +30,19 @@ export default function ForStartups() {
       });
 
       // Cards hover animation
-      gsap.utils.toArray('.startup-card').forEach((card: any) => {
-        const icon = card.querySelector('.card-icon');
-        const content = card.querySelector('.card-content');
+      gsap.utils.toArray('.startup-card').forEach((card) => {
+        const element = card as HTMLElement;
+        const icon = element.querySelector('.card-icon');
+        const content = element.querySelector('.card-content');
         
-        card.addEventListener('mouseenter', () => {
-          gsap.to(icon, { scale: 1.1, rotation: 5, duration: 0.3 });
-          gsap.to(content, { y: -5, duration: 0.3 });
+        element.addEventListener('mouseenter', () => {
+          if (icon) gsap.to(icon, { scale: 1.1, rotation: 5, duration: 0.3 });
+          if (content) gsap.to(content, { y: -5, duration: 0.3 });
         });
         
-        card.addEventListener('mouseleave', () => {
-          gsap.to(icon, { scale: 1, rotation: 0, duration: 0.3 });
-          gsap.to(content, { y: 0, duration: 0.3 });
+        element.addEventListener('mouseleave', () => {
+          if (icon) gsap.to(icon, { scale: 1, rotation: 0, duration: 0.3 });
+          if (content) gsap.to(content, { y: 0, duration: 0.3 });
         });
       });
 
